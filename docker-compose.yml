@@ -4,3 +4,5 @@ services:
   smtp-cli:
     build: .
     network_mode: host
+    volumes:
+      - .:/app

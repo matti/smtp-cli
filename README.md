@@ -1,3 +1,8 @@
+# fork notes:
+
+    docker-compose run smtp-cli --verbose --server localhost:2525 --from sender@sender.com --to target@target.com --subject hello --body-html body.html
+
+
 smtp-cli — command line SMTP client
 ===================================
 
@@ -37,7 +42,7 @@ Some features of smtp-cli are optional and available only when the appropriate p
   $ sudo yum install  perl-IO-Socket-SSL  perl-Digest-HMAC  perl-TermReadKey  \
 	                    perl-MIME-Lite  perl-File-LibMagic  perl-IO-Socket-INET6
   ```
-  
+
   If `yum` can't find them all try to enable [EPEL repository](http://fedoraproject.org/wiki/EPEL).
 
 * openSUSE and SUSE Enterprise (SLES) users should install these packages:
@@ -53,12 +58,12 @@ Some features of smtp-cli are optional and available only when the appropriate p
   $ sudo apt install  libio-socket-ssl-perl  libdigest-hmac-perl  libterm-readkey-perl \
 	                    libmime-lite-perl libfile-libmagic-perl libio-socket-inet6-perl
   ```
- 
+
 Users of other Linux distributions will have to find the appropriate packages by themselves, or install the modules directly from [CPAN](http://cpan.perl.org/).
 
 ## Donate please :)
 
-Please consider donating, even if it's just enough for a coffee. 
+Please consider donating, even if it's just enough for a coffee.
 
 [![Donate with PayPal](examples/PayPal-Donate-Button-PNG-Image.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=R8BYGL3B24QNE)
 
@@ -91,12 +96,12 @@ Things are getting more interesting. We will use `--server smtp.example.com:587`
 that is usually used by email clients (port 25 is usually for server-to-server communication). Port 587
 also _usually_ requires authentication.
 
-For that we'll supply `--user test` and optional `--password ...` to supply the credentials. 
+For that we'll supply `--user test` and optional `--password ...` to supply the credentials.
 If the password is not supplied we will be asked interactively.
 
-To actually send something we will also supply `--from` and `--to` parameters and also `--data message.txt`. 
+To actually send something we will also supply `--from` and `--to` parameters and also `--data message.txt`.
 
-Note tat this `message.txt` must contain both the _headers_ and the _message body_. If you don't want to 
+Note tat this `message.txt` must contain both the _headers_ and the _message body_. If you don't want to
 bother with creating the message headers yourself use `--body` instead, see the next example for details.
 
 ```
@@ -158,7 +163,7 @@ $ ./smtp-cli [--server / --auth / --verbose flags] \
              --attach /var/log/other.log
 ```
 
-This example composes a standard plain text email with two attachments. The interesting part is the syntax used for enforcing _MIME-Type_ of the first attachment. 
+This example composes a standard plain text email with two attachments. The interesting part is the syntax used for enforcing _MIME-Type_ of the first attachment.
 
 The syntax `some.log@text/plain` will make `some.log` attached as **text/plain** part, while the _MIME-Type_ of `other.log` will be guessed by the script and eventually default to **application/octet-stream**.
 
@@ -203,7 +208,7 @@ The second body file is a _plain text_ representation of the above, call it `bod
 
 ```
 Here comes embedded Mr Tux
-... actually it doesn't ... 
+... actually it doesn't ...
 Not in a text-only mail reader.
 Sorry
 ```
@@ -223,7 +228,7 @@ And this is what we get:
 
 ## Donate please :)
 
-Please consider donating, even if it's just enough for a coffee. 
+Please consider donating, even if it's just enough for a coffee.
 
 [![Donate with PayPal](examples/PayPal-Donate-Button-PNG-Image.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=R8BYGL3B24QNE)
 
